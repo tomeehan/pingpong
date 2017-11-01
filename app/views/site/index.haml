@@ -1,0 +1,67 @@
+.container
+  %nav.navbar.navbar-expand-md.navbar-light.bg-transparent
+    %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    = link_to root_path, class: "navbar-brand" do
+      %img.bat-logo{:src => "/ping-pong.svg", :alt => ""}/
+      isthepingpongroomfree.com
+    #navbarNav.collapse.navbar-collapse
+      %ul.navbar-nav.ml-auto
+        %li.nav-item.active
+          %a.nav-link{:href => "#"} Sign in
+        %li.nav-item.active          
+          %a.nav-link{:href => "#"} Sign up
+.container
+  .row.hero
+    .col-md-6.offset-md-3
+      %h1.text-center
+        Is The Ping Pong Room Free?
+      .room-status
+        %p Room Status:
+        %h2.text-center.busy
+          No
+.container
+  .row.faq
+    .col-md-6.offset-md-3
+      %h1.text-center
+        FAQ's
+      .questions-container
+        .question
+          %h4 I'm a developer and your website is shit
+          %p 
+            Open up a pull request:
+            %a{:href => "#{}"}github.com/tomeehan/ping-pong
+        .question
+          %h4 I'm an iOS developer and your app is shit
+          %p 
+            Open up a pull request:
+            %a{:href => "#{}"}github.com/tomeehan/ping-pong-ios
+        .question
+          %h4 I'm not a developer and your website is shit
+          %p 
+            Email me
+            %a{:href => "#{}"}tom.meehan@me.com
+        .question
+          %h4 I'm an Android user
+          %p 
+            Lol
+        .question
+          %h4 Will you share my ping pong activity with my investors?
+          %p 
+            No
+        .question
+          %h4 Will you bombard my inbox with marketing?
+          %p 
+            No. Your email isn't shared with anybody. We'll only email you a confirmation and password reset instructions.
+        .question
+          %h4 You said the room was free, but when I got there the room wasn't free?
+          %p 
+            Then tell those assholes to download the app.
+        .question
+          %h4 I'm an investor, and I'd like to email you a check for £1,000,000
+          %p 
+            Please send it to Tom Meehan at Florence (level 3)
+        .question
+          %h4 I'm your boss. Get back to work, Tom.
+          %p 
+            Ok sorry Charles

@@ -14,3 +14,52 @@
  *= require_self
  */
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,700');
+
+$green-light: rgb(110, 204, 174);
+$red: rgb(172,57,49);;
+
+body {
+  font-family: 'Fira Sans', Helvetica, Arial, sans-serif;
+}
+
+.bat-logo {
+  width: 80px !important;
+  height: 80px !important;
+}
+
+.hero {
+  margin-top: 20vh;
+}
+
+.faq {
+  margin-top: 200px;
+}
+
+.room-status {
+  margin-top: 50px;
+
+  h2 {
+    color: white;
+    border-radius: 5px;
+    padding: 36px;
+  }
+
+  .free {
+    background: $green-light;
+    box-shadow: 0 4px 6px rgba($green-light,.11), 0 1px 3px rgba(0,0,0,.08);
+  }
+
+  .busy {
+    background: $red;
+    box-shadow: 0 4px 6px rgba($red,.11), 0 1px 3px rgba(0,0,0,.08);
+  }
+}
+
+.questions-container {
+  margin-top: 50px;
+  text-align: center;
+  .question {
+    margin-bottom: 50px;
+  }
+}
