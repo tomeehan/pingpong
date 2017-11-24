@@ -1,0 +1,11 @@
+= simple_form_for @match do |f|
+  = f.hidden_field :category_id, value: params[:category_id]
+  
+  #games
+    = f.simple_fields_for :games do |game|
+      = render 'game_fields', f: game
+    .links
+      = link_to_add_association 'add game', f, :games
+
+  = f.submit
+  
