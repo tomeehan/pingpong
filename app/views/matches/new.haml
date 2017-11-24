@@ -1,11 +1,15 @@
-= simple_form_for @match do |f|
-  = f.hidden_field :category_id, value: params[:category_id]
-  
-  #games
-    = f.simple_fields_for :games do |game|
-      = render 'game_fields', f: game
-    .links
-      = link_to_add_association 'add game', f, :games
+- if params[:opponent]
+  = simple_form_for @match do |f|
+    = f.hidden_field :category_id, value: params[:category_id]
+    
+    #games
+      = f.simple_fields_for :games do |game|
+        = render 'game_fields', f: game
+      .links
+        = link_to_add_association 'add game', f, :games
 
-  = f.submit
-  
+    = f.submit
+- else
+  %h2 Your opponent:
+  - @users.each do |user|
+    = link_to "#{user.first_name} #{user.last_name}", new_match_path(category_id: params[:category_id], opponent: user.id), class: "btn btn-primary"

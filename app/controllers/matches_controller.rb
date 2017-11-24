@@ -4,6 +4,7 @@ class MatchesController < ApplicationController
   end
 
   def new
+    @users = User.where.not(id: current_user.id)
     @match = Match.new
     @category = Category.find(params[:category_id])
   end
