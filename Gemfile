@@ -18,6 +18,7 @@ gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
+gem "cocoon"
 
 
 group :development, :test do
