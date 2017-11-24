@@ -7,6 +7,10 @@ class MatchesController < ApplicationController
     @users = User.where.not(id: current_user.id)
     @match = Match.new
     @category = Category.find(params[:category_id])
+
+    if params[:opponent]
+      @opponent = User.find(params[:opponent])
+    end
   end
 
   def create

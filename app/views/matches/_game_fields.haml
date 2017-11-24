@@ -1,3 +1,2 @@
 .nested_fields
-  = f.input :winner
-  = f.input :loser
+  = f.collection_radio_buttons :winner, [[current_user.id, "#{current_user.last_name}"],[@opponent.id, "#{@opponent.last_name}"]], :first, :last
