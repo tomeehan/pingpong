@@ -16,6 +16,7 @@ class MatchesController < ApplicationController
     @opponent = User.find(params[:match][:opponent])
 
     if @match.save!
+      create_participants
       @match.games.each{ |game| game.update_attribute(:loser, resolve_loser(game)) }
       redirect_to matches_path
     else
@@ -33,4 +34,8 @@ class MatchesController < ApplicationController
     game.winner == current_user.id ? @opponent.id : current_user.id
   end
 
+  def create_participants
+    Participant.create(user_id: current_user.id, match_id: @match.id)
+    Participant.create(user_id: @opponent.id, match_id: @match.id)
+  end
 end
