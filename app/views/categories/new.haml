@@ -1,5 +1,8 @@
-= simple_form_for @category do |f|
-  = f.input :name
-  = f.input :win
-  = f.input :loss
-  = f.input :victory
+.row
+  .col-md-4.offset-md-4
+    = simple_form_for @category do |f|
+      = f.input :name
+      = f.input :win
+      = f.input :loss
+      = f.input :victory
+      = f.submit "Create Category", class: "btn btn-primary btn-block"
