@@ -2,7 +2,7 @@
   = simple_form_for @match do |f|
     = f.hidden_field :category_id, value: params[:category_id]
     = f.hidden_field :opponent, value: params[:opponent]
-    
+  
     #games
       = f.simple_fields_for :games do |game|
         = render 'game_fields', f: game
