@@ -8,9 +8,7 @@ class MatchesController < ApplicationController
     @match = Match.new
     @category = Category.find(params[:category_id])
 
-    if params[:opponent]
-      @opponent = User.find(params[:opponent])
-    end
+    @opponent = User.find(params[:opponent]) if params[:opponent]
   end
 
   def create
