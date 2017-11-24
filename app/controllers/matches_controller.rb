@@ -16,7 +16,7 @@ class MatchesController < ApplicationController
     @opponent = User.find(params[:match][:opponent])
 
     if @match.save!
-      @match.games.each{ |game| game.update_attribute(:loser, resole_loser(game)) }
+      @match.games.each{ |game| game.update_attribute(:loser, resolve_loser(game)) }
       redirect_to matches_path
     else
       render :new
@@ -29,7 +29,7 @@ class MatchesController < ApplicationController
     params.require(:match).permit(:category_id, :opponent, games_attributes: [:id, :winner, :loser])
   end
 
-  def resole_loser(game)
+  def resolve_loser(game)
     game.winner == current_user.id ? @opponent.id : current_user.id
   end
 
