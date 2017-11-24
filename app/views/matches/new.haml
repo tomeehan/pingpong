@@ -1,16 +1,18 @@
-- if params[:opponent]
-  = simple_form_for @match do |f|
-    = f.hidden_field :category_id, value: params[:category_id]
-    = f.hidden_field :opponent, value: params[:opponent]
-  
-    #games
-      = f.simple_fields_for :games do |game|
-        = render 'game_fields', f: game
-      .links
-        = link_to_add_association 'add game', f, :games
-
-    = f.submit
-- else
-  %h2 Your opponent:
-  - @users.each do |user|
-    = link_to "#{user.first_name} #{user.last_name}", new_match_path(category_id: params[:category_id], opponent: user.id), class: "btn btn-primary"
+.row
+  .col-md-4.offset-md-4
+    - if params[:opponent]
+      = simple_form_for @match do |f|
+        = f.hidden_field :category_id, value: params[:category_id]
+        = f.hidden_field :opponent, value: params[:opponent]
+      
+        #games
+          = f.simple_fields_for :games do |game|
+            = render 'game_fields', f: game
+          .links
+            = link_to_add_association 'add game', f, :games, class: "btn btn-secondary btn-sm"
+        %br/
+        = f.submit "Save Scores", class: "btn btn-primary btn-block"
+    - else
+      %h2 Your opponent:
+      - @users.each do |user|
+        = link_to "#{user.first_name} #{user.last_name}", new_match_path(category_id: params[:category_id], opponent: user.id), class: "btn btn-primary"
