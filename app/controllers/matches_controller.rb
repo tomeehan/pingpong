@@ -20,6 +20,6 @@ class MatchesController < ApplicationController
   private 
 
   def match_params
-    params.require(:match).permit(:category_id, games_attributes: [:id, :winner_id, :loser_id])
+    params.require(:match).permit(:category_id, games_attributes: [:id, :winner, :loser])
   end
 end
