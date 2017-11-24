@@ -18,11 +18,7 @@ class MatchesController < ApplicationController
     @opponent = User.find(params[:match][:opponent])
 
     if @match.save!
-      
-      @match.games.each do |game|
-        game.update_attribute(:loser, resole_loser(game))
-      end
-
+      @match.games.each{ |game| game.update_attribute(:loser, resole_loser(game)) }
       redirect_to matches_path
     else
       render :new
