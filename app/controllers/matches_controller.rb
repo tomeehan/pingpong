@@ -7,6 +7,7 @@ class MatchesController < ApplicationController
     @users = User.where.not(id: current_user.id)
     @match = Match.new
     @category = Category.find(params[:category_id])
+    @game_count = @category.game_count
 
     @opponent = User.find(params[:opponent]) if params[:opponent]
   end
