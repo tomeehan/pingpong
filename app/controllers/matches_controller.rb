@@ -18,6 +18,7 @@ class MatchesController < ApplicationController
     @opponent = User.find(params[:match][:opponent])
 
     if @match.save!
+      
       @match.games.each do |game|
         game.update_attribute(:loser, resole_loser(game))
       end
@@ -37,5 +38,5 @@ class MatchesController < ApplicationController
   def resole_loser(game)
     game.winner == current_user.id ? @opponent.id : current_user.id
   end
-  
+
 end
