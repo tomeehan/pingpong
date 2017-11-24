@@ -5,6 +5,7 @@ class MatchesController < ApplicationController
 
   def new
     @match = Match.new
+    @category = Category.find(params[:category_id])
   end
 
   def create
