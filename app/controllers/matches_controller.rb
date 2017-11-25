@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
   def index
     @categories = Category.all    
 
-    @all_time = User.all
+    @all_time = User.all.sort { |x, y| y.adjusted_total_points <=> x.adjusted_total_points }
   end
 
   def new

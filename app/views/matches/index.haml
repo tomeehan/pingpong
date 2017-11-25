@@ -1,27 +1,44 @@
 .matches
-  .row.mt-3
-    .col-md-4
+  .row
+    .col-md-6
       .card
-        %h4.card-header All Time
+        %h6.card-header All Time
         .card-body
           .table
             .table-header
               .row
-                .col-md-6
+                .col-md-4
                   %h6 Name
-                .col-md-3.text-right
-                  %h6 GP
-                .col-md-3.text-right
-                  %h6 Points
-            - @all_time.each do |user|
-              .table-row
-                = user.full_name
-    .col-md-4
+                .col-md-2.text-right
+                  %h6 MP
+                .col-md-2.text-right
+                  %h6 W/L
+                .col-md-2.text-right
+                  %h6 Pts.
+                .col-md-2.text-right
+                  %h6 
+                    Pts.
+                    %small
+                      (adj)
+            - @all_time.each_with_index do |user, index|
+              .row.table-row{:class => ("champion" if index == 0)}
+                .col-md-4
+                  = user.full_name
+                  - if index == 0
+                    %img{:src => "https://image.flaticon.com/icons/png/512/625/625489.png", :alt => ""}
+                .col-md-2.text-right
+                  = user.matches_played
+                .col-md-2.text-right
+                  = "#{user.wins} / #{user.loses}"
+                .col-md-2.text-right
+                  = user.total_points
+                .col-md-2.text-right
+                  = user.adjusted_total_points
+    .col-md-2
     .col-md-4
       .categories
         %h4 New Game
+        %br/
         - @categories.each do |category|
           = link_to "#{category.name}", new_match_path(category_id: category.id), class: "btn btn-primary"
           %br/
-      %hr/
-      = link_to "New Category", new_category_path

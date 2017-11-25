@@ -13,6 +13,7 @@
         %br/
         = f.submit "Save Scores", class: "btn btn-primary btn-block"
     - else
-      %h2.text-center Your opponent:
+      %h4.text-center Your opponent:
+      %br/
       - @users.each do |user|
         = link_to "#{user.first_name} #{user.last_name}", new_match_path(category_id: params[:category_id], opponent: user.id), class: "btn btn-primary btn-block"
