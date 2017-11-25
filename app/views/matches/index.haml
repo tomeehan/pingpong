@@ -1,7 +1,27 @@
 .matches
-  .categories
-    - @categories.each do |category|
-      = link_to "#{category.name}", new_match_path(category_id: category.id), class: "btn btn-primary"
-      %br/
-  %hr/
-  = link_to "New Category", new_category_path
+  .row.mt-3
+    .col-md-4
+      .card
+        %h4.card-header All Time
+        .card-body
+          .table
+            .table-header
+              .row
+                .col-md-6
+                  %h6 Name
+                .col-md-3.text-right
+                  %h6 GP
+                .col-md-3.text-right
+                  %h6 Points
+            - @all_time.each do |user|
+              .table-row
+                = user.full_name
+    .col-md-4
+    .col-md-4
+      .categories
+        %h4 New Game
+        - @categories.each do |category|
+          = link_to "#{category.name}", new_match_path(category_id: category.id), class: "btn btn-primary"
+          %br/
+      %hr/
+      = link_to "New Category", new_category_path

@@ -1,6 +1,8 @@
 class MatchesController < ApplicationController
   def index
     @categories = Category.all    
+
+    @all_time = User.all
   end
 
   def new
