@@ -19,7 +19,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
 gem "cocoon"
-
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
